@@ -14,7 +14,6 @@ import { CustomerInterface } from '../interfaces/customer';
 export class AuthService {
   readonly ROOT_URL = 'https://api.test-cobiro.com/api/v1'
 
-
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
   public isAuthenticated(): boolean {
@@ -30,8 +29,8 @@ export class AuthService {
       )
   }
 
-  login(customer: CustomerInterface): Observable<CustomerInterface> {
-    return this.http.post<CustomerInterface>(this.ROOT_URL + '/login', customer)
+  login(customer: CustomerInterface): Observable<any> {
+    return this.http.post<any>(this.ROOT_URL + '/login', customer)
       .pipe(
         catchError(this.handleError)
       )
