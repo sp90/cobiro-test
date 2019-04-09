@@ -1,31 +1,68 @@
-<section class="start">
-  <article class="start__intro">
-    <h1>Signup</h1>
+<section class="signup">
+  <article class="signup__intro">
+    <h1>Sign up for Cobiro today</h1>
+
+    <h2>And Automate your Google Ads</h2>
+
+    <p>
+      Join over 25,000 online stores using Cobiro - a free tool for Google Ads® - text and shopping ads. It’s an
+      easy-to-use, intelligent advertising platform fully automating keyword planning and bidding.
+    </p>
   </article>
 
-  <article class="start__form">
+  <article class="signup__form">
     <form [formGroup]="registerCustomer" (ngSubmit)="submit()" novalidate>
       <h5>
-        Login to your Cobiro account below.
+        Create a free Cobiro account below.
       </h5>
 
       <p>
-        Don't have an account? <a routerLink="/signup">Sign up here</a>.
+        Already have an account? <a routerLink="/start">Login here</a>.
       </p>
 
       <hr class="spacer">
 
-      <div class="form-field">
-        <label>
-          Email<br />
-          <input type="text" formControlName="email" placeholder="Email..." />
-        </label>
+      <div class="form-row">
+        <div class="form-field">
+          <label>
+            Email<br />
+            <input type="text" formControlName="email" placeholder="Email..." />
+          </label>
+        </div>
+        
+        <div class="form-field">
+          <label>
+            Password<br />
+            <input type="password" formControlName="password" placeholder="*****" />
+          </label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label>
+            First name<br />
+            <input type="text" formControlName="first_name" placeholder="First name..." />
+          </label>
+        </div>
+
+        <div class="form-field">
+          <label>
+            Last name<br />
+            <input type="text" formControlName="last_name" placeholder="Last name..." />
+          </label>
+        </div>
       </div>
 
       <div class="form-field">
         <label>
-          Password<br />
-          <input type="password" formControlName="password" placeholder="*****" />
+          Country location<br />
+          <!-- <select type="password" formControlName="last_name" placeholder="Select your country" /> -->
+          <select formControlName="country_code">
+            <option [selected]="true">Select your country</option>
+            <option *ngFor="let country of countries; let i = index;" [ngValue]="country.iso">{{ country.name }}
+            </option>
+          </select>
         </label>
       </div>
 
