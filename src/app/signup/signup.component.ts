@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(8)]],
       first_name: ['', [Validators.required, Validators.minLength(2)]],
       last_name: ['', [Validators.required, Validators.minLength(2)]],
-      country_code: ['', [Validators.required]],
+      country_code: [null, [Validators.required, Validators.minLength(2)]],
     });
     
     this.getCountries()

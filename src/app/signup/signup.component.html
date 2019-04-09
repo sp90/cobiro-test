@@ -58,16 +58,16 @@
         <label>
           Country location<br />
           <!-- <select type="password" formControlName="last_name" placeholder="Select your country" /> -->
-          <select formControlName="country_code">
-            <option [selected]="true">Select your country</option>
+          <select formControlName="country_code" placeholder="Select your country">
+            <option [disabled]="true" [selected]="true" [ngValue]="">Select your country</option>
             <option *ngFor="let country of countries; let i = index;" [ngValue]="country.iso">{{ country.name }}
             </option>
           </select>
         </label>
       </div>
 
-      <button class="btn-primary" [disabled]=" registerCustomer.invalid">
-        Continue
+      <button class="btn-primary" [disabled]="registerCustomer.invalid || isLoading">
+        {{ isLoading ? 'Loading...' : 'Continue' }}
       </button>
     </form>
   </article>
