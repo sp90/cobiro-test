@@ -49,7 +49,7 @@ export class SignupComponent implements OnInit {
           this.login(this.registerCustomer.value)
         }
       })
-  }
+  } 
 
   login(loginObj: CustomerInterface) {
     this.Auth.login(loginObj)
