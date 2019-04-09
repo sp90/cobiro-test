@@ -1,0 +1,33 @@
+a.btn-primary,
+button.btn-primary {
+  background-color: transparent;
+  border: 0;
+  color: #4f525f;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  height: 49px;
+  line-height: 49px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-width: 182px;
+  padding: 0 36px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  z-index: 0;
+
+  &:after {
+    content: '';
+    background-color: $color--primary;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform .2s ease-in;
+    transition: transform .2s ease-in, -webkit-transform .2s ease-in;
+  }
+}

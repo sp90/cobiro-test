@@ -1,0 +1,40 @@
+/**
+ *  Fonts
+ */
+$base-font: 'Lato', sans-serif;
+
+/**
+ *  Colors
+ */
+$color--bg: #f9f9f9;
+$color--primary: #fcf22b;
+$color--base-text: #4f525f;
+
+/**
+ *  Form defaults
+ */
+$br: 4px;
+$bs: 0 8px 22px 0 rgba(#000, .05);
+
+/**
+ *  Spacing / Gutter / Height
+ */
+$gutter: 15px;
+$gutter--x2: $gutter * 2;
+$gutter--x3: $gutter * 3;
+$gutter--x4: $gutter * 4;
+$gutter--x5: $gutter * 5;
+$gutter--x6: $gutter * 6;
+$gutter--x7: $gutter * 7;
+$gutter--x8: $gutter * 8;
+
+/**
+ *  Breakpoints
+ */
+$bp-giga: 2500px;
+$bp-mega: 1900px;
+$bp-kilo: 1360px;
+$bp-centi: 1024px;
+$bp-milli: 768px;
+$bp-nano: 480px;
+$bp-micro: 374px;
