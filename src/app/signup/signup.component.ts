@@ -15,6 +15,7 @@ export class SignupComponent implements OnInit {
   registerCustomer: FormGroup;
   countries: any;
   isLoading: boolean = false;
+  testing: boolean = false;
 
   constructor(private fb: FormBuilder, private Auth: AuthService, private http: HttpClient, private router: Router) { }
 

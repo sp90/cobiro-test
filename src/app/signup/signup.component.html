@@ -26,14 +26,14 @@
         <div class="form-field">
           <label>
             Email<br />
-            <input type="text" formControlName="email" placeholder="Email..." />
+            <input type="email" class="signup__email" formControlName="email" placeholder="Email..." />
           </label>
         </div>
         
         <div class="form-field">
           <label>
             Password<br />
-            <input type="password" formControlName="password" placeholder="*****" />
+            <input type="password" class="signup__password" formControlName="password" placeholder="*****" />
           </label>
         </div>
       </div>
@@ -42,14 +42,14 @@
         <div class="form-field">
           <label>
             First name<br />
-            <input type="text" formControlName="first_name" placeholder="First name..." />
+            <input type="text" class="signup__first-name"  formControlName="first_name" placeholder="First name..." />
           </label>
         </div>
 
         <div class="form-field">
           <label>
             Last name<br />
-            <input type="text" formControlName="last_name" placeholder="Last name..." />
+            <input type="text" class="signup__last-name" formControlName="last_name" placeholder="Last name..." />
           </label>
         </div>
       </div>
@@ -57,8 +57,7 @@
       <div class="form-field">
         <label>
           Country location<br />
-          <!-- <select type="password" formControlName="last_name" placeholder="Select your country" /> -->
-          <select formControlName="country_code" placeholder="Select your country">
+          <select class="signup__country-code" formControlName="country_code" placeholder="Select your country">
             <option [disabled]="true" [selected]="true" [ngValue]="">Select your country</option>
             <option *ngFor="let country of countries; let i = index;" [ngValue]="country.iso">{{ country.name }}
             </option>
@@ -66,7 +65,10 @@
         </label>
       </div>
 
-      <button class="btn-primary" [disabled]="registerCustomer.invalid || isLoading">
+      <button
+        type="submit"
+        class="btn-primary" 
+        [disabled]="registerCustomer.invalid || isLoading">
         {{ isLoading ? 'Loading...' : 'Continue' }}
       </button>
     </form>
