@@ -29,4 +29,25 @@
     color: #50535b;
     margin-top: 20px;
   }
+
+  select {
+    background-image: url(/assets/icons/chevron-down.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
+    background-size: 12px;
+    padding-right: 40px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+  }
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+
+  .form-field {
+    width: calc(100% / 2 - 7.5px);
+  }
 }

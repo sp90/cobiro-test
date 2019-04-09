@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+//import { CustomerInterface } from '../interfaces/customer';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-start',
@@ -8,8 +12,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 })
 export class StartComponent implements OnInit {
   loginCustomer: FormGroup;
+  isLoading: boolean = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private Auth: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.loginCustomer = this.fb.group({
@@ -19,39 +24,25 @@ export class StartComponent implements OnInit {
   }
 
   login() {
-    //
+    this.isLoading = true;
+    
+    this.Auth.login(this.loginCustomer.value)
+      .subscribe((data: any) => {
+        // Bind to localstorage
+        if (data && data.access_token && data.customer) {
+          localStorage.setItem('cobiroToken', data.access_token)
+          localStorage.setItem('cobiroUser', JSON.stringify(data.customer))
+        }
+
+        // Validate that the user is authenticated 
+        //  - This could be used to safeguard routes
+        //  - And good for testing
+        // console.log(this.Auth.isAuthenticated())
+
+        // Redirect to dashboard
+        this.router.navigate(['/dashboard'])
+
+        this.isLoading = false;
+      })
   }
 }
-
-  // getTodos() {
-  //   this.Todos.get()
-  //     .subscribe((data: Todo[]) => {
-  //       console.log(data)
-
-  //       this.todos = data
-  //     })
-  // }
-
-  // createTodo() {
-  //   this.Todos.create(this.todoForm.value)
-  //     .subscribe((data: Todo) => {
-  //       this.todos.push(data)
-  //     })
-  // }
-
-  // updateTodo(todo: Todo) {
-  //   // Update todo
-  //   this.Todos.update(todo._id, todo)
-  //     .subscribe((data: Todo) => {
-  //       console.log(data)
-  //     })
-  // }
-
-  // deleteTodo(id: string, index: number) {
-  //   this.Todos.delete(id)
-  //     .subscribe((data: Todo) => {
-  //       console.log(data)
-
-  //       _.pullAt(this.todos, index)
-  //     })
-  // }

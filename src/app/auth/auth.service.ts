@@ -22,6 +22,13 @@ export class AuthService {
       )
   }
 
+  login(customer: CustomerInterface): Observable<CustomerInterface> {
+    return this.http.post<CustomerInterface>(this.ROOT_URL + '/login', customer)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   // Error handling 
   handleError(error) {
     let errorMessage = ''

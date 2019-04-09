@@ -17,6 +17,18 @@ button.btn-primary {
   text-decoration: none;
   white-space: nowrap;
   z-index: 0;
+  opacity: 1;
+  transition: opacity 125ms ease;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &[disabled] {
+    cursor: progress;
+    opacity: .5;
+  }
 
   &:after {
     content: '';
@@ -29,9 +41,5 @@ button.btn-primary {
     z-index: -1;
     transition: transform .2s ease-in;
     transition: transform .2s ease-in, -webkit-transform .2s ease-in;
-  }
-
-  &:focus {
-    outline: none
   }
 }

@@ -36,8 +36,10 @@
         </label>
       </div>
 
-      <button class="btn-primary" [disabled]=" loginCustomer.invalid">
-        Continue
+      <button 
+        class="btn-primary" 
+        [disabled]=" loginCustomer.invalid || isLoading">
+        {{ isLoading ? 'Loading...' : 'Continue' }}
       </button>
     </form>
   </article>
