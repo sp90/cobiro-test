@@ -1,0 +1,37 @@
+<section class="start">
+  <article class="start__intro">
+    <h1>Signup</h1>
+  </article>
+
+  <article class="start__form">
+    <form [formGroup]="registerCustomer" (ngSubmit)="submit()" novalidate>
+      <h5>
+        Login to your Cobiro account below.
+      </h5>
+
+      <p>
+        Don't have an account? <a routerLink="/signup">Sign up here</a>.
+      </p>
+
+      <hr class="spacer">
+
+      <div class="form-field">
+        <label>
+          Email<br />
+          <input type="text" formControlName="email" placeholder="Email..." />
+        </label>
+      </div>
+
+      <div class="form-field">
+        <label>
+          Password<br />
+          <input type="password" formControlName="password" placeholder="*****" />
+        </label>
+      </div>
+
+      <button class="btn-primary" [disabled]=" registerCustomer.invalid">
+        Continue
+      </button>
+    </form>
+  </article>
+</section>

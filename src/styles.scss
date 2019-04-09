@@ -4,12 +4,13 @@
 @import 'sass/variables';
 
 // Mixins
-@import 'sass/mixins/breakpoint';
 @import 'sass/mixins/cover';
 @import 'sass/mixins/ellipsis';
+@import 'sass/mixins/flow';
 @import 'sass/mixins/overflow-scrolling';
 
 // Core
 @import 'sass/core/layout';
+@import 'sass/core/defaults';
 @import 'sass/core/button';
 @import 'sass/core/form-fields';

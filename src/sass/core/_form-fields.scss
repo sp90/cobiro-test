@@ -1,4 +1,7 @@
 .form-field {
+  position: relative;
+  margin-bottom: 30px;
+  
   input,
   select,
   textarea {
@@ -13,6 +16,10 @@
     width: 100%;
     box-shadow: none;
     margin-top: 10px;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   label {

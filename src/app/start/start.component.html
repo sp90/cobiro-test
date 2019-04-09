@@ -1,0 +1,44 @@
+<section class="start">
+  <article class="start__intro">
+    <h1>Welcome back</h1>
+    
+    <h2>Sign in to your account</h2>
+    
+    <p> 
+      Over 25,000 online stores use Cobiro - a free tool for Google Ads® - text and shopping ads. It’s
+      an easy-to-use, intelligent advertising platform fully automating keyword planning and bidding. 
+    </p>
+  </article>
+
+  <article class="start__form">
+    <form [formGroup]="loginCustomer" (ngSubmit)="login()" novalidate>
+      <h5>
+        Login to your Cobiro account below.
+      </h5>
+
+      <p>
+        Don't have an account? <a routerLink="/signup">Sign up here</a>.
+      </p>
+
+      <hr class="spacer">
+
+      <div class="form-field">
+        <label>
+          Email<br />
+          <input type="text" formControlName="email" placeholder="Email..." />
+        </label>
+      </div>
+
+      <div class="form-field">
+        <label>
+          Password<br />
+          <input type="password" formControlName="password" placeholder="*****" />
+        </label>
+      </div>
+
+      <button class="btn-primary" [disabled]=" loginCustomer.invalid">
+        Continue
+      </button>
+    </form>
+  </article>
+</section>

@@ -1,0 +1,42 @@
+h1 {
+    font-size: 42px;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 26px;
+    line-height: 55px;
+}
+
+h5 {
+    font-size: 18px;
+    line-height: 1.47;
+}
+
+p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #4f525f;
+    margin-top: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 500;
+    color: #4f525f;
+}
+
+a {
+    color: #4f525f;
+    text-decoration: underline;
+}
+
+hr.spacer {
+    border: 0;
+    height: 1px;
+    background-color: rgba(#000, .05);
+}
