@@ -6,9 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { CustomerInterface } from '../interfaces/customer';
-import { DebugElement } from '@angular/core';
-
 export function tokenGetter() {
   return localStorage.getItem('access_token')
 }
@@ -16,9 +13,6 @@ export function tokenGetter() {
 describe('StartComponent', () => {
   let component: StartComponent;
   let fixture: ComponentFixture<StartComponent>;
-  let submitEl: DebugElement;
-  let emailEl: DebugElement;
-  let passwordEl: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -45,11 +39,7 @@ describe('StartComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    const compiled = fixture.debugElement.nativeElement;
-
-    submitEl = compiled.querySelector(('button'));
-    emailEl = compiled.querySelector(('input[type=email]'));
-    passwordEl = compiled.querySelector(('input[type=password]'));
+    component.testing = true;
   });
 
   it('should create start component', () => {
@@ -62,14 +52,19 @@ describe('StartComponent', () => {
   });
 
   it('should login when inputs are filled', () => {
-    emailEl.value = "test@example.com";
-    passwordEl.value = "123456";
+    const compiled = fixture.debugElement.nativeElement;
 
-    expect(component.isLoading).toBeFalsy()
+    let emailEl = compiled.querySelector(('input[type=email]'));
+    let passwordEl = compiled.querySelector(('input[type=password]'));
+
+    emailEl.value = 'work@nomis.dk';
+    passwordEl.value = 'testtest';
+
+    expect(component.isLoading).toBeFalsy();
 
     // Login
     component.login()
 
-    expect(component.isLoading).toBeTruthy()
+    expect(component.isLoading).toBeTruthy();
   });
 });

@@ -13,6 +13,7 @@ import { AuthService } from '../auth/auth.service';
 export class StartComponent implements OnInit {
   loginCustomer: FormGroup;
   isLoading: boolean = false;
+  testing: boolean = false;
 
   constructor(private fb: FormBuilder, private Auth: AuthService, private router: Router) {}
 
@@ -40,7 +41,9 @@ export class StartComponent implements OnInit {
         // console.log(this.Auth.isAuthenticated())
 
         // Redirect to dashboard
-        this.router.navigate(['/dashboard'])
+        if (this.testing === false) {
+          this.router.navigate(['/dashboard'])
+        }
 
         this.isLoading = false;
       })
